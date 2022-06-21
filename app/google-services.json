@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1099371121104",
+    "project_id": "storedrobe-eda10",
+    "storage_bucket": "storedrobe-eda10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099371121104:android:febebfa93ee5cc192b11d5",
+        "android_client_info": {
+          "package_name": "com.varsitycollege.storedrobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099371121104-pnp05fqshr22to4pdbago9h7bebfjibt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUhYKsdH6S-xwEaFAtvI4uILsmklPGYWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1099371121104-pnp05fqshr22to4pdbago9h7bebfjibt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

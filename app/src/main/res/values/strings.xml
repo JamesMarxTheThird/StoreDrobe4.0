@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StoreDrobe</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="confirmpasswordHint">Confirm password</string>
+    <string name="hats">Hats</string>
+    <string name="shirts">Shirts</string>
+</resources>
