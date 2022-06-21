@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginPage extends AppCompatActivity {
 
+    //Jamozayy comment
+
 String emailLayout = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     private EditText userNameLP;
