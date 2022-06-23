@@ -15,14 +15,14 @@
         android:text="Set a goal for a category" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/categoryChoiceSpinner"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/goalTV"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,7 +33,7 @@
         android:textAlignment="center"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/setGoalBTN"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

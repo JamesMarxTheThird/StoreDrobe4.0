@@ -82,7 +82,20 @@
             android:text="Add category   Add item goal" />
 
 
+        <Button
+            android:id="@+id/viewCurrentGoalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Button" />
 
+
+        <TextView
+            android:id="@+id/goalAmountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -109,7 +122,16 @@
                 android:text="Hats"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
+
         </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/goalPB1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="220dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="20dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -191,6 +213,9 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
         </RelativeLayout>
+
+
+
 
     </LinearLayout>
 
