@@ -22,6 +22,8 @@ public class CategoryPopupPage extends AppCompatActivity {
     private String awe;
     private Button backBTN2;
 
+    //jamozayy check
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference storeDrobeRef = database.getReference("Data");
 
@@ -48,7 +50,7 @@ public class CategoryPopupPage extends AppCompatActivity {
 
                     //storeDrobeRef.push().setValue(catClass);
                     //storeDrobeRef.child(catClass.toString()).push().child("Pants").setValue(catClass);
-                    storeDrobeRef.child("Categories").setValue(catClass);
+                    storeDrobeRef.child("Categories").push().setValue(catClass);
                     Toast.makeText(CategoryPopupPage.this, "Category has been added!", Toast.LENGTH_SHORT).show();
                 }
                 else{
