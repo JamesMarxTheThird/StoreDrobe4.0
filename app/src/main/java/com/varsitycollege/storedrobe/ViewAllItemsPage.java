@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,11 +28,11 @@ public class ViewAllItemsPage extends AppCompatActivity {
     private ArrayAdapter<String> itemsAdapter;
     private String cat;
     private Button addItemsBTN;
-
+    private String childValue;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference storeDrobeRef = database.getReference("ItemCategories");
+    DatabaseReference storeDrobeRef = database.getReference("ItemCategories").child(childValue);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class ViewAllItemsPage extends AppCompatActivity {
         setContentView(R.layout.activity_view_all_items_page);
 
         item_List = new ArrayList<>();
-        listView_Item = findViewById(R.id.itemsLV);
+        listView_Item = findViewById(R.id.itemsLV2);
         item_Class = new ItemClass();
         addItemsBTN = findViewById(R.id.addItemButton);
         cat = "Pants";

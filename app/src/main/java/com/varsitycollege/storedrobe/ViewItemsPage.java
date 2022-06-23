@@ -3,19 +3,14 @@ package com.varsitycollege.storedrobe;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,16 +24,16 @@ public class ViewItemsPage extends AppCompatActivity {
 
     private FirebaseAuth loginAuth;
 
-    private ListView listViewItem;
-    private List<String> itemList;
+    private ListView listViewItem2;
+    private List<String> itemList2;
     private ItemClass itemClass;
-    private ArrayAdapter<String> itemsAdapter;
+    private ArrayAdapter<String> itemsAdapter2;
     private String cat;
 
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference storeDrobeRef = database.getReference("messages");
+    DatabaseReference storeDrobeRef = database.getReference("ItemCategories");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,25 +43,25 @@ public class ViewItemsPage extends AppCompatActivity {
 // Initialize Firebase Auth
         loginAuth = FirebaseAuth.getInstance();
 
-        itemList = new ArrayList<>();
-        listViewItem = findViewById(R.id.itemsLV);
+        itemList2 = new ArrayList<>();
+        listViewItem2 = findViewById(R.id.itemsLV2);
         itemClass = new ItemClass();
-        cat = "Pants";
+        //cat = "Pants";
 
 
         storeDrobeRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot itemHistory : snapshot.getChildren()){
+            public void onDataChange(@NonNull DataSnapshot addLVSS) {
+                for (DataSnapshot itemDetails : addLVSS.getChildren()){
                     //String email = itemHistory.child("Hats").getValue(String.class);
 
-                        ItemClass item = itemHistory.getValue(ItemClass.class);
-                        itemList.add(item.toString());
+                        ItemClass item2 = itemDetails.getValue(ItemClass.class);
+                        itemList2.add(item2.toString());
 
                 }
 
-                itemsAdapter = new ArrayAdapter<String>(ViewItemsPage.this, android.R.layout.simple_list_item_1, itemList);
-                listViewItem.setAdapter(itemsAdapter);
+                itemsAdapter2 = new ArrayAdapter<String>(ViewItemsPage.this, android.R.layout.simple_list_item_1, itemList2);
+                listViewItem2.setAdapter(itemsAdapter2);
 
             }
 
