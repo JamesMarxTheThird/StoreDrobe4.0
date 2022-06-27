@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements View.OnClickListener {
 
     private Dialog addCategoryDialog;
     private Dialog addGoalDialog;
@@ -48,6 +48,8 @@ public class HomePage extends AppCompatActivity {
     private int countNumInCat;
     private String currentChild;
     private ArrayAdapter<String> otherAdapter;
+    public String btnVal;
+    public Button btnGraph;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -70,6 +72,12 @@ public class HomePage extends AppCompatActivity {
         goalPB = findViewById(R.id.goalPB1);
         getCurrentGoalAmount = findViewById(R.id.viewCurrentGoalAmount);
         goalTV = findViewById(R.id.goalAmountTV);
+        btnGraph = findViewById(R.id.pieChart);
+
+        hatsBTN.setOnClickListener(this);
+        shirtsBTN.setOnClickListener(this);
+        pantsBTN.setOnClickListener(this);
+        shoesBTN.setOnClickListener(this);
 
         goalPB.isShown();
         goalPB.setMax(99);
@@ -104,6 +112,14 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+
+        btnGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, ItemPieChart.class);
+                startActivity(intent);
+            }
+        });
 
         //addCatBTN = findViewById(R.id.newCategoryButton);
 
@@ -178,6 +194,8 @@ public class HomePage extends AppCompatActivity {
     }
 
     public void goToViewItemsPage(View v5){
+
+
         Intent addItem = new Intent (this, ViewAllItemsPage.class);
         startActivity(addItem);
     }
@@ -193,6 +211,28 @@ public class HomePage extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View view){
+
+        switch (view.getId()) {
+            case R.id.hatsButton:
+                    btnVal = "Hats";
+                break;
+            case R.id.shirtsButton:
+                    btnVal = "Shirts";
+                break;
+            case R.id.pantsButton:
+                    btnVal = "Pants";
+                break;
+            case R.id.shoesButton:
+                    btnVal = "Shoes";
+                break;
+        }
+        Toast.makeText(HomePage.this, btnVal, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent (HomePage.this, ViewAllItemsPage.class);
+        startActivity(intent);
+    }
 
 }
 /*

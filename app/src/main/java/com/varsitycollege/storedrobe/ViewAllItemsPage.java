@@ -29,10 +29,10 @@ public class ViewAllItemsPage extends AppCompatActivity {
     private String cat;
     private Button addItemsBTN;
     private String childValue;
-
+    private HomePage hp = new HomePage();
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference storeDrobeRef = database.getReference("ItemCategories").child(childValue);
+    DatabaseReference storeDrobeRef = database.getReference("ItemCategories");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,10 @@ public class ViewAllItemsPage extends AppCompatActivity {
         listView_Item = findViewById(R.id.itemsLV2);
         item_Class = new ItemClass();
         addItemsBTN = findViewById(R.id.addItemButton);
-        cat = "Pants";
+        cat = hp.btnVal;
 
 
-        storeDrobeRef.addValueEventListener(new ValueEventListener() {
+        storeDrobeRef.child("pants").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot itemHistory : snapshot.getChildren()){
