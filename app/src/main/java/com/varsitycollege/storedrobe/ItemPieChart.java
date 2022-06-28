@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
@@ -13,11 +16,18 @@ import java.util.ArrayList;
 public class ItemPieChart extends AppCompatActivity {
 
     private PieChart pieChart;
+    private DatabaseReference countRef;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    //DatabaseReference storeDrobeRef = database.getReference("Categories");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_pie_chart);
+
+        countRef = FirebaseDatabase.getInstance().getReference().child("ItemCategories");
+
 
         pieChart = findViewById(R.id.pieChart);
 
@@ -26,6 +36,9 @@ public class ItemPieChart extends AppCompatActivity {
 
     public void PieChartData(){
         ArrayList<PieChart> data =  new ArrayList<>();
+
+
+
 
         //data.add(new PieChart(15, "hats"));
         pieChart.addPieSlice( new PieModel("Hats", 15, Color.parseColor("#FFA726")));
